@@ -6,6 +6,7 @@ if(!$session->is_logged_in()) {
 }
 
 $smarty = new MySmarty();
+$max_file_size = 1048576;
 
 if(isset($_POST['submit'])) {
     $photo = new Photograph();
@@ -21,6 +22,7 @@ if(isset($_POST['submit'])) {
 }
 
 $smarty->assign('message', output_message($message));
+$smarty->assign('max_file_size', $max_file_size);
 
 $smarty->display('admin_header.tpl');
 $smarty->display('photo_upload.tpl');
